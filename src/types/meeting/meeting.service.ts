@@ -4,7 +4,7 @@ import { Model } from "mongoose"
 import { ObjectId } from "mongoose"
 import { CreateMeetingDao } from "./meeting.dao"
 import { Meeting, MeetingDocument } from "./meeting.schema"
-
+import { createTransport, getTestMessageUrl } from "nodemailer"
 
 @Injectable()
 export class MeetingService { 
@@ -15,7 +15,35 @@ export class MeetingService {
     // Add user to DB
     async create(dao: CreateMeetingDao): Promise<Meeting> {
         const meeting = await this.meetingModel.create({...dao})
-        console.log(meeting)
+        console.log(meeting) // TODO: generate link from zoom api
+        // TODO: send mail with link
+
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = createTransport({
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+            user: "allmyclass.aa", // generated ethereal user
+            pass: "1234adam", // generated ethereal password
+            },
+        });
+
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: '"Fred Foo 👻" allmyclass.aa@gmail.com', // sender address
+            to: "livneadam@gmail.com, rudovruben4all@gmail.com", // list of receivers
+            subject: "Hello ✔", // Subject line
+            text: "Hello world?", // plain text body
+            html: "<b>Hello world?</b>", // html body
+        });
+
+        console.log("Message sent: %s", info.messageId);
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", getTestMessageUrl(info));
         return meeting
     }
 
