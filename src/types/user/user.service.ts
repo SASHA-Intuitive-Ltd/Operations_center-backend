@@ -36,4 +36,10 @@ export class UserService {
         const user = await this.userModel.findByIdAndDelete(id)
         return user._id
     }
+
+    // Update function for a user, returns a promise of ObjectId
+    async update(id: ObjectId, dao: CreateUserDao): Promise<ObjectId> {
+        const user = await this.userModel.findByIdAndUpdate(id, dao)
+        return user._id
+    }
 }

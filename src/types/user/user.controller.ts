@@ -1,7 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Param, Post, Put, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common"
 import { CreateUserDao } from "./dao/user.dao"
 import { UserService } from "./user.service"
-import { ObjectId } from "mongoose"
+import { isValidObjectId, ObjectId } from "mongoose"
 import { FileFieldsInterceptor } from "@nestjs/platform-express"
 
 @Controller('/users')
@@ -32,5 +32,10 @@ export class UserController {
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
         return this.userService.delete(id)
+    }
+
+    @Put(':id')
+    update(@Param('id') id: ObjectId, @Body() dao: CreateUserDao) {
+        return this.userService.update(id, dao)
     }
 }
