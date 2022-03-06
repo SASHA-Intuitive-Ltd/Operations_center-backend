@@ -15,8 +15,6 @@ export class MeetingService {
 
     // Add user to DB
     async create(dao: CreateMeetingDao): Promise<Meeting> {
-        const meeting = await this.meetingModel.create({...dao})
-        console.log(meeting) // TODO: generate link from zoom api
 
         const url = "https://api.zoom.us/v2/users/6gRlK_vvTtKNNAWDnRxqoQ/meetings" 
         const body = {
@@ -110,7 +108,7 @@ export class MeetingService {
               "waiting_room": true,
               "watermark": false
             },
-            "start_time": "2023-08-24T14:15:22Z",
+            "start_time": `${dao.date}`,
             "template_id": "Aa",
             "timezone": "",
             "topic": "",
@@ -145,11 +143,12 @@ export class MeetingService {
 
         // send mail with defined transport object
         let info = await transporter.sendMail({
-            from: '"Fred Foo 👻" allmyclass.aa@gmail.com', // sender address
+            from: `"${dao.admin}" 'allmyclass.aa@gmail.com'`, // sender address
             to: "livneadam@gmail.com, rudovruben4all@gmail.com", // list of receivers   TODO: change to dynamic via dao...
-            subject: `Meeting with: `, // Subject line
-            text: "LOLOLOL", // plain text body
-            html: "<b>Hello world?</b>", // html body
+            subject: `${dao.topic}`, // Subject line
+            text: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n
+            `, // plain text body
+            html: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n`, // html body
         });
 
         console.log("Message sent: %s", info.messageId);
@@ -157,6 +156,12 @@ export class MeetingService {
 
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", getTestMessageUrl(info));
+
+        
+        const meeting = await this.meetingModel.create({...dao})
+        console.log(meeting) // TODO: generate link from zoom api
+
+
         return meeting
     }
 
