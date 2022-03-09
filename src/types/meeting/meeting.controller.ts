@@ -28,6 +28,12 @@ export class MeetingController {
         return this.meetingService.getSingle(id)
     }
 
+    // Get all meeting of single admin from DB
+    @Get('/byAdmin/:id')
+    getAllByAdmin(@Param('id') id: string) {
+        return this.meetingService.getAllByAdmin(id)
+    }
+
     // Delete single meeting from DB
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {

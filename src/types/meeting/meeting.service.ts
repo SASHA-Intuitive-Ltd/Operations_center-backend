@@ -4,8 +4,10 @@ import { Model } from "mongoose"
 import { ObjectId } from "mongoose"
 import { CreateMeetingDao } from "./meeting.dao"
 import { Meeting, MeetingDocument } from "./meeting.schema"
+import { Admin, AdminDocument } from "../admin/schemas/admin.schema"
 import { createTransport, getTestMessageUrl } from "nodemailer"
 import axios from "axios"
+import { AdminController } from "../admin/admin.controller"
 
 @Injectable()
 export class MeetingService { 
@@ -171,10 +173,16 @@ export class MeetingService {
         return meeting
     }
 
-    // Get single user from DB
+    // Get single meeting from DB
     async getSingle(id: ObjectId): Promise<Meeting> {
         const meeting = await this.meetingModel.findById(id)
         return meeting
+    }
+
+    // Get all meetings of admin by admin id
+    async getAllByAdmin(id: string): Promise<Meeting[]> {
+      const meetings = await this.meetingModel.find({admin: id})
+      return meetings
     }
 
     //TODO: Get all by admin name
