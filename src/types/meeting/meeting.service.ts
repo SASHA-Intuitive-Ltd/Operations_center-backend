@@ -130,10 +130,8 @@ export class MeetingService {
             });
             
         // TODO: send mail with link
-
-
         // create reusable transporter object using the default SMTP transport
-        let transporter = createTransport({
+        /**let transporter = createTransport({
             host: "smtp.gmail.com",
             port: 587,
             secure: false, // true for 465, false for other ports
@@ -146,7 +144,7 @@ export class MeetingService {
         // send mail with defined transport object
         let info = await transporter.sendMail({
             from: `"${dao.admin}" 'allmyclass.aa@gmail.com'`, // sender address
-            to: "livneadam@gmail.com, rudovruben4all@gmail.com", // list of receivers   TODO: change to dynamic via dao...
+            to: `rudovruben4all@gmail.com`, // list of receivers   TODO: change to dynamic via dao...
             subject: `${dao.topic}`, // Subject line
             text: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n
             `, // plain text body
@@ -155,14 +153,13 @@ export class MeetingService {
 
         console.log("Message sent: %s", info.messageId);
         // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
+        **/
         // Preview only available when sending through an Ethereal account
-        console.log("Preview URL: %s", getTestMessageUrl(info));
+        // console.log("Preview URL: %s", getTestMessageUrl(info));
 
         
         const meeting = await this.meetingModel.create({...dao})
         console.log(meeting) // TODO: generate link from zoom api
-
 
         return meeting
     }
@@ -179,17 +176,22 @@ export class MeetingService {
         return meeting
     }
 
-    // Get all meetings of admin by admin id
+    // Get all meetings of admin by admin name
     async getAllByAdmin(id: string): Promise<Meeting[]> {
       const meetings = await this.meetingModel.find({admin: id})
       return meetings
     }
 
-    //TODO: Get all by admin name
 
     // Delete single user from DB
     async delete(id: ObjectId): Promise<ObjectId> {
         const meeting = await this.meetingModel.findByIdAndDelete(id)
         return meeting._id
+    }
+
+    // Update meeting info 
+    async update(id: ObjectId, dao: CreateMeetingDao): Promise<ObjectId>{
+      const meeting = await this.meetingModel.findByIdAndUpdate(id, dao)
+      return meeting._id
     }
 }

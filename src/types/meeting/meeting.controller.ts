@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Param, Post, Put, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common"
 import { CreateMeetingDao } from "./meeting.dao"
 import { MeetingService } from "./meeting.service"
 import { ObjectId } from "mongoose"
@@ -38,5 +38,10 @@ export class MeetingController {
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
         return this.meetingService.delete(id)
+    }
+
+    @Put(':id')
+    update(@Param('id') id: ObjectId, @Body() dao: CreateMeetingDao) {
+        return this.meetingService.update(id, dao)
     }
 }
