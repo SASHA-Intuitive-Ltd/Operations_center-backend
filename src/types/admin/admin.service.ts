@@ -31,6 +31,29 @@ export class AdminService {
         return admin
     }
 
+    // Login function returns true if input and db passwords matching
+    async getLoginResult(fullname: string, password: string): Promise<Object> {
+
+        console.log("Fullname: " + fullname)
+
+        // Get admin by full name
+        const admin = await this.adminModel.findOne({ fullname: fullname })
+        console.log("Admin found: " + admin)
+
+        // If passwords match, return true
+        if (admin.password !== null) {
+            if (admin.password == password) {
+                console.log("Correct password")
+                return admin
+            }
+        }
+
+        // Else, return false/null
+        else {
+            return null
+        }
+    }
+
     // Delete single admin from DB
     async delete(id: ObjectId): Promise<ObjectId> {
         const admin = await this.adminModel.findByIdAndDelete(id)

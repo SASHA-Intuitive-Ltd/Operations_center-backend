@@ -3,6 +3,7 @@ import { CreateAdminDao } from "./dao/admin.dao"
 import { AdminService } from "./admin.service"
 import { ObjectId } from "mongoose"
 import { FileFieldsInterceptor } from "@nestjs/platform-express"
+import { response } from "express"
 
 @Controller('/admins')
 export class AdminController {
@@ -26,6 +27,12 @@ export class AdminController {
     @Get(':id')
     getSingle(@Param('id') id: ObjectId) {
         return this.adminService.getSingle(id)
+    }
+
+    @Get('/loginByNameAndPassword/:fullname/:password')
+    getLoginResult(@Param('fullname') fullname: string, @Param('password') password: string) {
+        console.log(`User, password: ${fullname}, ${password}`)
+        return this.adminService.getLoginResult(fullname, password)
     }
 
     // Delete single admin from DB
