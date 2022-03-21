@@ -9,6 +9,7 @@ import { UserModule } from "./types/user/user.module"
 import { MongooseModule } from '@nestjs/mongoose'
 import { AdminModule } from "./types/admin/admin.module"
 import { MeetingModule } from "./types/meeting/meeting.module"
+import { ScenarioModule } from "./types/scenario/scenario.module"
 import * as config from '././configs/dbconfig.json'
 
 @Module({
@@ -16,7 +17,8 @@ import * as config from '././configs/dbconfig.json'
         MongooseModule.forRoot(`mongodb+srv://ruben:${config.password}@cluster0.ely3j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`),
         UserModule,
         AdminModule,
-        MeetingModule
+        MeetingModule,
+        ScenarioModule
     ]
 })
 

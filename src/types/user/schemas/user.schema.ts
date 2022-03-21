@@ -34,6 +34,8 @@ export class User {
     @Prop()
     gender: string
 
+    @Prop()
+    age: Number
     //@Prop()
     //date_of_birth: mongoose.Date
 

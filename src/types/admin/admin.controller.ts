@@ -1,9 +1,7 @@
-import { Body, Controller, Delete, Get, Param, Post, UploadedFile, UploadedFiles, UseInterceptors } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common"
 import { CreateAdminDao } from "./dao/admin.dao"
 import { AdminService } from "./admin.service"
 import { ObjectId } from "mongoose"
-import { FileFieldsInterceptor } from "@nestjs/platform-express"
-import { response } from "express"
 
 @Controller('/admins')
 export class AdminController {
