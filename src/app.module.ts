@@ -10,6 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { AdminModule } from "./types/admin/admin.module"
 import { MeetingModule } from "./types/meeting/meeting.module"
 import { ScenarioModule } from "./types/scenario/scenario.module"
+import { StepModule } from "./types/step/step.module"
 import * as config from '././configs/dbconfig.json'
 
 @Module({
@@ -18,7 +19,8 @@ import * as config from '././configs/dbconfig.json'
         UserModule,
         AdminModule,
         MeetingModule,
-        ScenarioModule
+        ScenarioModule,
+        StepModule
     ]
 })
 
