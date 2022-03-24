@@ -28,6 +28,11 @@ export class UserController {
         return this.userService.getSingle(id)
     }
 
+    @Get('/byName/:fullname')
+    getSingleByName(@Param('fullname') fullname: string) {
+        return this.userService.getSingleByName(fullname)
+    }
+
     // Delete single user from DB
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
@@ -37,5 +42,10 @@ export class UserController {
     @Put(':id')
     update(@Param('id') id: ObjectId, @Body() dao: CreateUserDao) {
         return this.userService.update(id, dao)
+    }
+
+    @Delete('/byFilter/byFilter')
+    deleteByNull() {
+        return this.userService.deleteByFilterNull()
     }
 }

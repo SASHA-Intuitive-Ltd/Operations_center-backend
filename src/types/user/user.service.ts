@@ -31,10 +31,26 @@ export class UserService {
         return user
     }
 
+    // Get single user name by name
+    async getSingleByName(fullname: string): Promise<User> {
+        const user = await this.userModel.findOne({fullname: fullname})
+        return user
+    }
+
     // Delete single user from DB
     async delete(id: ObjectId): Promise<ObjectId> {
         const user = await this.userModel.findByIdAndDelete(id)
         return user._id
+    }
+
+    // Delete all blank users from DB
+    async deleteByFilterNull() {
+        const deleteed = await this.userModel.deleteMany({
+            address: '',
+            phone: '',
+            fullname: ''
+        })
+        console.log(deleteed)
     }
 
     // Update function for a user, returns a promise of ObjectId

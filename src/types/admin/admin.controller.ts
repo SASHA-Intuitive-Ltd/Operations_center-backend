@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common"
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common"
 import { CreateAdminDao } from "./dao/admin.dao"
 import { AdminService } from "./admin.service"
 import { ObjectId } from "mongoose"
+import { CreateUserDao } from "../user/dao/user.dao"
 
 @Controller('/admins')
 export class AdminController {
@@ -37,5 +38,13 @@ export class AdminController {
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
         return this.adminService.delete(id)
+    }
+
+    // Update single admin by dao
+    @Put(':id/newId/:uid')
+    update(@Param('id') id: ObjectId, @Param('uid') uid: string) {
+        const admin = this.adminService.update(uid, id)
+        console.log(admin)
+        return admin
     }
 }

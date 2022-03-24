@@ -61,17 +61,22 @@ export class AdminService {
     }
 
     // Update admin
-    async update(newPatientId: string, adminId: ObjectId): Promise<ObjectId> {
+    async update(newPatientId: string, adminId: ObjectId): Promise<Admin> {
 
         let admin_old = this.getSingle(adminId)
 
         let updated_admin = admin_old
         ;(await updated_admin).patients.push(newPatientId)
 
-        const admin = await this.adminModel.findByIdAndUpdate({_id: adminId}, updated_admin, {
+        // console.log("Update doc: " + (await updated_admin))
+        console.log("Update list: " + (await updated_admin).patients)
+
+        await this.adminModel.updateOne({_id: adminId}, (await updated_admin), {
             new: true
         })
 
-        return admin._id
+        const admin = this.getSingle(adminId)
+
+        return (await admin)
     }
 }
