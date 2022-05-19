@@ -22,9 +22,9 @@ export class DeviceController {
     }
 
     // Get single admin from DB
-    @Get(':id')
-    getSingle(@Param('id') id: ObjectId) {
-        return this.deviceService.getSingle(id)
+    @Get(':username')
+    getSingle(@Param('username') username: string) {
+        return this.deviceService.getSingle(username)
     }
 
 

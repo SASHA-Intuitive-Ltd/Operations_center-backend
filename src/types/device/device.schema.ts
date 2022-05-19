@@ -16,11 +16,10 @@ export class Device {
     username: string
 
     @Prop()
-    shower: boolean[]
+    shower: Number[]
 
     @Prop()
-    registers: Number[]
-
+    states: boolean[]
 }
 
 export const DeviceSchema = SchemaFactory.createForClass(Device);

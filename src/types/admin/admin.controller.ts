@@ -30,7 +30,7 @@ export class AdminController {
 
     @Get('/loginByNameAndPassword/:fullname/:password')
     getLoginResult(@Param('fullname') fullname: string, @Param('password') password: string) {
-        console.log(`User, password: ${fullname}, ${password}`)
+        console.log(`User ${fullname}, password: ${password}`)
         return this.adminService.getLoginResult(fullname, password)
     }
 

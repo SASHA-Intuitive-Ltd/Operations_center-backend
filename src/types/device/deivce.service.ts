@@ -26,8 +26,8 @@ export class DeviceService {
     }
 
     // Get single admin from DB
-    async getSingle(id: ObjectId): Promise<Device> {
-        const admin = await this.adminModel.findById(id)
+    async getSingle(username: string): Promise<Device> {
+        const admin = await this.adminModel.findOne({"username": username})
         return admin
     }
 

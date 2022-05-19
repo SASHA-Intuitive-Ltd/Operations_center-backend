@@ -13,6 +13,7 @@ import { ScenarioModule } from "./types/scenario/scenario.module"
 import { StepModule } from "./types/step/step.module"
 import * as config from '././configs/dbconfig.json'
 import { DeviceModule } from "./types/device/device.module"
+import { WorkflowModule } from "./types/workflow/workflow.module"
 
 @Module({
     imports: [
@@ -22,7 +23,8 @@ import { DeviceModule } from "./types/device/device.module"
         MeetingModule,
         ScenarioModule,
         StepModule,
-        DeviceModule
+        DeviceModule,
+        WorkflowModule
     ]
 })
 
