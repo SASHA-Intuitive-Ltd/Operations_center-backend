@@ -11,7 +11,7 @@ import { AdminModule } from "./types/admin/admin.module"
 import { MeetingModule } from "./types/meeting/meeting.module"
 import { ScenarioModule } from "./types/scenario/scenario.module"
 import { StepModule } from "./types/step/step.module"
-import * as config from '././configs/dbconfig.json'
+import * as config from '././configs/finals.json' 
 import { DeviceModule } from "./types/device/device.module"
 import { WorkflowModule } from "./types/workflow/workflow.module"
 
