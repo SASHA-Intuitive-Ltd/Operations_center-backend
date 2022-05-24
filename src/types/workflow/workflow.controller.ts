@@ -9,7 +9,7 @@ export class WorkflowController {
     // Constructor
     constructor(private workflowService: WorkflowService) {}
 
-    // Add admin to DB
+    // Add workflow to DB
     @Post()
     create(@Body() dao: CreateWorkflowDao) {
         return this.workflowService.create(dao)
@@ -21,24 +21,16 @@ export class WorkflowController {
         return this.workflowService.getAll()
     }
 
-    // Get single admin from DB
+    // Get single workflow from DB
     @Get(':id')
     getSingle(@Param('id') id: string) {
         return this.workflowService.getSingle(id)
     }
 
 
-    // Delete single admin from DB
+    // Delete single workflow from DB
     @Delete(':id')
     delete(@Param('id') id: ObjectId) {
         return this.workflowService.delete(id)
     }
-
-    // Update single admin by dao
-    // @Put('')
-    // update(@Param('id') id: ObjectId) {
-    //     const admin = this.deviceService.update()
-    //     console.log(admin)
-    //     return admin
-    // }
 }

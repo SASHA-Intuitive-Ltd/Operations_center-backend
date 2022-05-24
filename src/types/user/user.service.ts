@@ -43,7 +43,7 @@ export class UserService {
         return user._id
     }
 
-    // Delete all blank users from DB
+    // Delete all blank users from DB (-- for debug purposes only --)
     async deleteByFilterNull() {
         const deleteed = await this.userModel.deleteMany({
             address: '',

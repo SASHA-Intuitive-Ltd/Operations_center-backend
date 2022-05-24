@@ -9,6 +9,4 @@ export class CreateUserDao {
     readonly address: string
     readonly profileImg: string
     readonly age: Number
-   // readonly date_of_birth: Date
-   // readonly diagnosis: string[]
 }

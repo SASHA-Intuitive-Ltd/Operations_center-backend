@@ -1,6 +1,6 @@
 /**
  * @Authro Ruben Rudov
- * @Purpose Comment db schema
+ * @Purpose Admin db schema
  */
 
 // Imports

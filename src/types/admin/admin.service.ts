@@ -1,3 +1,4 @@
+// Admin service
 import { Injectable } from "@nestjs/common"
 import { InjectModel } from "@nestjs/mongoose"
 import { Model } from "mongoose"
@@ -40,7 +41,7 @@ export class AdminService {
         const admin = await this.adminModel.findOne({ fullname: fullname })
         console.log("Admin found: " + admin)
 
-        // If passwords match, return true
+        // If passwords match, return admin
         if (admin.password !== null) {
             if (admin.password == password) {
                 console.log("Correct password")
@@ -48,7 +49,7 @@ export class AdminService {
             }
         }
 
-        // Else, return false/null
+        // Else, return null
         else {
             return null
         }
@@ -77,6 +78,7 @@ export class AdminService {
 
         const admin = this.getSingle(adminId)
 
+        // Return result
         return (await admin)
     }
 }

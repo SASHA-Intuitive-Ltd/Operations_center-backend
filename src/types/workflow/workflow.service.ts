@@ -9,31 +9,31 @@ import { WorkflowDocument, Workflow, WorkflowSchema } from "./workflow.schema"
 @Injectable()
 export class WorkflowService { 
     constructor(
-        @InjectModel(Workflow.name) private adminModel: Model<WorkflowDocument>,
+        @InjectModel(Workflow.name) private workflowModel: Model<WorkflowDocument>,
     ) {}
 
-    // Add admin to DB
+    // Add workflow to DB
     async create(dao: CreateWorkflowDao): Promise<Workflow> {
-        const admin = await this.adminModel.create({...dao})
-        console.log(admin)
-        return admin
+        const workflow = await this.workflowModel.create({...dao})
+        console.log(workflow)
+        return workflow
     }
 
-    // Get all admin from DB
+    // Get all workflow from DB
     async getAll(): Promise<Workflow[]> {
-        const admin = await this.adminModel.find()
-        return admin
+        const workflow = await this.workflowModel.find()
+        return workflow
     }
 
-    // Get single admin from DB
+    // Get single workflow from DB
     async getSingle(id: string): Promise<Workflow> {
-        const admin = await this.adminModel.findOne({"username": id})
-        return admin
+        const workflow = await this.workflowModel.findOne({"username": id})
+        return workflow
     }
 
-    // Delete single admin from DB
+    // Delete single workflow from DB
     async delete(id: ObjectId): Promise<ObjectId> {
-        const admin = await this.adminModel.findByIdAndDelete(id)
-        return admin._id
+        const workflow = await this.workflowModel.findByIdAndDelete(id)
+        return workflow._id
     }
 }

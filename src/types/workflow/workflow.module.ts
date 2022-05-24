@@ -1,6 +1,6 @@
 /**
  * @Author Ruben Rudov
- * @Purpose Contain all MVCs stuff of the app
+ * @Purpose Unify workflow controller and service under one module
  */
 
 // Imports

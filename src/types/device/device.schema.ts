@@ -1,5 +1,5 @@
 /**
- * @Authro Ruben Rudov
+ * Data access object of device
  */
 
 // Imports

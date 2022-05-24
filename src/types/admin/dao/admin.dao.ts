@@ -1,3 +1,5 @@
+// Data access object of admin login
+
 import { ObjectId, Date } from "mongoose"
 
 export class CreateAdminDao {

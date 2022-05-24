@@ -40,6 +40,7 @@ export class MeetingController {
         return this.meetingService.delete(id)
     }
 
+    // Update single meeting in DB
     @Put(':id')
     update(@Param('id') id: ObjectId, @Body() dao: CreateMeetingDao) {
         return this.meetingService.update(id, dao)

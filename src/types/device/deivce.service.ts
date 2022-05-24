@@ -9,51 +9,31 @@ import { DeviceSchema, Device, DeviceDocument } from "./device.schema"
 @Injectable()
 export class DeviceService { 
     constructor(
-        @InjectModel(Device.name) private adminModel: Model<DeviceDocument>,
+        @InjectModel(Device.name) private deviceModel: Model<DeviceDocument>,
     ) {}
 
-    // Add admin to DB
+    // Add device to DB
     async create(dao: CreateDeviceDao): Promise<Device> {
-        const admin = await this.adminModel.create({...dao})
-        console.log(admin)
-        return admin
+        const device = await this.deviceModel.create({...dao})
+        console.log(device)
+        return device
     }
 
-    // Get all admin from DB
+    // Get all device from DB
     async getAll(): Promise<Device[]> {
-        const admin = await this.adminModel.find()
-        return admin
+        const device = await this.deviceModel.find()
+        return device
     }
 
-    // Get single admin from DB
+    // Get single device from DB
     async getSingle(username: string): Promise<Device> {
-        const admin = await this.adminModel.findOne({"username": username})
-        return admin
+        const device = await this.deviceModel.findOne({"username": username})
+        return device
     }
 
-    // Delete single admin from DB
+    // Delete single device from DB
     async delete(id: ObjectId): Promise<ObjectId> {
-        const admin = await this.adminModel.findByIdAndDelete(id)
-        return admin._id
+        const device = await this.deviceModel.findByIdAndDelete(id)
+        return device._id
     }
-
-    // // Update admin
-    // async update(newPatientId: string, adminId: ObjectId): Promise<Device> {
-
-    //     let admin_old = this.getSingle(adminId)
-
-    //     let updated_admin = admin_old
-    //     ;(await updated_admin).patients.push(newPatientId)
-
-    //     // console.log("Update doc: " + (await updated_admin))
-    //     console.log("Update list: " + (await updated_admin).patients)
-
-    //     await this.adminModel.updateOne({_id: adminId}, (await updated_admin), {
-    //         new: true
-    //     })
-
-    //     const admin = this.getSingle(adminId)
-
-    //     return (await admin)
-    // }
 }

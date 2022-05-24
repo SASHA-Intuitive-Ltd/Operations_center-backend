@@ -129,33 +129,33 @@ export class MeetingService {
                 console.error('Error:', error);
             });
             
-        // TODO: send mail with link
-        // create reusable transporter object using the default SMTP transport
-        /**let transporter = createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: "allmyclass.aa", // generated ethereal user
-                pass: "1234adam", // generated ethereal password
-            },
-        });
+          // TODO: send mail with link
+          // create reusable transporter object using the default SMTP transport
+          /**let transporter = createTransport({
+              host: "smtp.gmail.com",
+              port: 587,
+              secure: false, // true for 465, false for other ports
+              auth: {
+                  user: "allmyclass.aa", // generated ethereal user
+                  pass: "1234adam", // generated ethereal password
+              },
+          });
 
-        // send mail with defined transport object
-        let info = await transporter.sendMail({
-            from: `"${dao.admin}" 'allmyclass.aa@gmail.com'`, // sender address
-            to: `rudovruben4all@gmail.com`, // list of receivers   TODO: change to dynamic via dao...
-            subject: `${dao.topic}`, // Subject line
-            text: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n
-            `, // plain text body
-            html: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n`, // html body
-        });
+          // send mail with defined transport object
+          let info = await transporter.sendMail({
+              from: `"${dao.admin}" 'allmyclass.aa@gmail.com'`, // sender address
+              to: `rudovruben4all@gmail.com`, // list of receivers   TODO: change to dynamic via dao...
+              subject: `${dao.topic}`, // Subject line
+              text: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n
+              `, // plain text body
+              html: `Hey ${dao.user}, you've got a new remote meeting appointment from ${dao.admin}, Link: ${dao.link}\n`, // html body
+          });
 
-        console.log("Message sent: %s", info.messageId);
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-        **/
-        // Preview only available when sending through an Ethereal account
-        // console.log("Preview URL: %s", getTestMessageUrl(info));
+          console.log("Message sent: %s", info.messageId);
+          // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+          **/
+          // Preview only available when sending through an Ethereal account
+          // console.log("Preview URL: %s", getTestMessageUrl(info));
 
         
         const meeting = await this.meetingModel.create({...dao})

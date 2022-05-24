@@ -1,3 +1,4 @@
+// Meeting dao
 import { ObjectId, Date } from "mongoose"
 
 export class CreateMeetingDao {

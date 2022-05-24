@@ -1,6 +1,6 @@
 /**
  * @Author Ruben Rudov
- * @Purpose Contain all MVCs stuff of the app
+ * @Purpose Scenario step module
  */
 
 // Imports

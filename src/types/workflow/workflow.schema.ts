@@ -1,5 +1,6 @@
 /**
- * @Authro Ruben Rudov
+ * @Author Ruben Rudov
+ * @Purpose Workflow db schema
  */
 
 // Imports

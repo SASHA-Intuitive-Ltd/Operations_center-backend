@@ -1,5 +1,4 @@
 // Data access object of scenarios 
-
 import { ObjectId } from "mongoose"
 
 export class CreateScenarioDao {
