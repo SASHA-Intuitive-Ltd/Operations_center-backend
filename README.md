@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-<p align="center">Server side of our <a href="https://sashaintuitive.com/independence" target="_blank">web home monitoring and controlling service</a> framework for building efficient and scalable server-side applications.</p>
+<p align="center">Server side of our <a href="https://sashaintuitive.com/independence" target="_blank">web home monitoring and controlling service</a></p>
 
 ## About us
 
