@@ -9,7 +9,7 @@
 
 ## About us
 
-[SASHA Intuitive](https://github.com/nestjs/nest) provides technology of robotic virtual care enabling aging in place and independent life with disabilities. SASHA stands for Self Ability Supporting Home Activities and allows people performing activities of daily living independently on caregivers.
+[SASHA Intuitive](https://sashaintuitive.com/) provides technology of robotic virtual care enabling aging in place and independent life with disabilities. SASHA stands for Self Ability Supporting Home Activities and allows people performing activities of daily living independently on caregivers.
 
 ## Purpose
 
