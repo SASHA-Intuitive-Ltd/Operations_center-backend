@@ -11,9 +11,12 @@
 
 [SASHA Intuitive](https://github.com/nestjs/nest) provides technology of robotic virtual care enabling aging in place and independent life with disabilities. SASHA stands for Self Ability Supporting Home Activities and allows people performing activities of daily living independently on caregivers.
 
-## Support
+## Purpose
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The operations center purpose is to enable home devices and health monitoring of patients for home members and caregivers at facilities.
+The system is divided into two main session types: 
+  * Admin - includes: Company representatives, home main acount, facility caregiver
+  * User - includes: Patients
 
 ## Stay in touch
 
