@@ -34,8 +34,11 @@ export class User {
     @Prop()
     gender: string
 
+    // @Prop()
+    //age: Number
+
     @Prop()
-    age: Number
+    device: string
     //@Prop()
     //date_of_birth: mongoose.Date
 

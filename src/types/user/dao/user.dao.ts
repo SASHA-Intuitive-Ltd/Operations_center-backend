@@ -8,5 +8,6 @@ export class CreateUserDao {
     readonly phone: string
     readonly address: string
     readonly profileImg: string
-    readonly age: Number
+    // readonly age: Number
+    readonly device: string
 }
