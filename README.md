@@ -18,6 +18,13 @@ The system is divided into two main session types:
   * Admin - includes: Company representatives, home main acount, facility caregiver
   * User - includes: Patients
 
+## Contribute
+- Clone this repo
+- Install packages using: ```npm install```
+- Use postman with raw input and json format for debugging requests
+- All routes are MVCS structured, so moudle is the utility we refer to at app.ts, controller is the api route and service is the functionality and logics behind the scenes.
+
+
 ## Stay in touch
 
 - Author - [Ruben Rudov](https://github.com/rubenrudov)
